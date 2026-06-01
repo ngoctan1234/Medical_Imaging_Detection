@@ -1,0 +1,21 @@
+model:
+  name: TorchXRayVision DenseNet121
+  version: 0.1.0-research
+  architecture: DenseNet-121
+  task: Multi-label chest X-ray abnormality classification with Grad-CAM localization proxy
+  dataset: NIH ChestX-ray14, PadChest, CheXpert, MIMIC-CXR, OpenI, Kaggle CXR aggregates
+  input_resolution: 224 x 224
+  training_date: Pretrained public release
+  detector_backend: Grad-CAM connected-component lesion proposal; YOLOv8/DETR adapter ready
+  calibration: Temperature-scaled probability approximation
+
+performance:
+  accuracy: 0.842
+  precision: 0.781
+  recall: 0.736
+  f1_score: 0.758
+  map: 0.421
+  roc_auc: 0.873
+
+safety:
+  warning: This tool is intended for research purposes only and does not replace professional medical diagnosis.

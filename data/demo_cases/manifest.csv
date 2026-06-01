@@ -1,0 +1,37 @@
+case_id,title,path,source,note
+CASE-01,Demo X-ray Case 01,data/demo_cases/case_01.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-02,Demo X-ray Case 02,data/demo_cases/case_02.png,Derived from Wikimedia pneumonia X-ray sample,contrast
+CASE-03,Demo X-ray Case 03,data/demo_cases/case_03.png,Derived from Wikimedia pneumonia X-ray sample,brightness
+CASE-04,Demo X-ray Case 04,data/demo_cases/case_04.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, sharpness"
+CASE-05,Demo X-ray Case 05,data/demo_cases/case_05.png,Derived from Wikimedia pneumonia X-ray sample,mild blur
+CASE-06,Demo X-ray Case 06,data/demo_cases/case_06.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, brightness, autocontrast"
+CASE-07,Demo X-ray Case 07,data/demo_cases/case_07.png,Derived from Wikimedia pneumonia X-ray sample,center crop
+CASE-08,Demo X-ray Case 08,data/demo_cases/case_08.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, sharpness, horizontal flip"
+CASE-09,Demo X-ray Case 09,data/demo_cases/case_09.png,Derived from Wikimedia pneumonia X-ray sample,"brightness, rotate 2 deg"
+CASE-10,Demo X-ray Case 10,data/demo_cases/case_10.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, mild blur"
+CASE-11,Demo X-ray Case 11,data/demo_cases/case_11.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-12,Demo X-ray Case 12,data/demo_cases/case_12.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, brightness, sharpness, autocontrast"
+CASE-13,Demo X-ray Case 13,data/demo_cases/case_13.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-14,Demo X-ray Case 14,data/demo_cases/case_14.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, center crop"
+CASE-15,Demo X-ray Case 15,data/demo_cases/case_15.png,Derived from Wikimedia pneumonia X-ray sample,"brightness, mild blur"
+CASE-16,Demo X-ray Case 16,data/demo_cases/case_16.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, sharpness, horizontal flip"
+CASE-17,Demo X-ray Case 17,data/demo_cases/case_17.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-18,Demo X-ray Case 18,data/demo_cases/case_18.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, brightness, autocontrast, rotate -2 deg"
+CASE-19,Demo X-ray Case 19,data/demo_cases/case_19.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-20,Demo X-ray Case 20,data/demo_cases/case_20.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, sharpness, mild blur"
+CASE-21,Demo X-ray Case 21,data/demo_cases/case_21.png,Derived from Wikimedia pneumonia X-ray sample,"brightness, center crop"
+CASE-22,Demo X-ray Case 22,data/demo_cases/case_22.png,Derived from Wikimedia pneumonia X-ray sample,contrast
+CASE-23,Demo X-ray Case 23,data/demo_cases/case_23.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-24,Demo X-ray Case 24,data/demo_cases/case_24.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, brightness, sharpness, autocontrast, horizontal flip"
+CASE-25,Demo X-ray Case 25,data/demo_cases/case_25.png,Derived from Wikimedia pneumonia X-ray sample,mild blur
+CASE-26,Demo X-ray Case 26,data/demo_cases/case_26.png,Derived from Wikimedia pneumonia X-ray sample,contrast
+CASE-27,Demo X-ray Case 27,data/demo_cases/case_27.png,Derived from Wikimedia pneumonia X-ray sample,"brightness, rotate 2 deg"
+CASE-28,Demo X-ray Case 28,data/demo_cases/case_28.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, sharpness, center crop"
+CASE-29,Demo X-ray Case 29,data/demo_cases/case_29.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-30,Demo X-ray Case 30,data/demo_cases/case_30.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, brightness, mild blur, autocontrast"
+CASE-31,Demo X-ray Case 31,data/demo_cases/case_31.png,Derived from Wikimedia pneumonia X-ray sample,subtle contrast
+CASE-32,Demo X-ray Case 32,data/demo_cases/case_32.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, sharpness, horizontal flip"
+CASE-33,Demo X-ray Case 33,data/demo_cases/case_33.png,Derived from Wikimedia pneumonia X-ray sample,brightness
+CASE-34,Demo X-ray Case 34,data/demo_cases/case_34.png,Derived from Wikimedia pneumonia X-ray sample,contrast
+CASE-35,Demo X-ray Case 35,data/demo_cases/case_35.png,Derived from Wikimedia pneumonia X-ray sample,"mild blur, center crop"
+CASE-36,Demo X-ray Case 36,data/demo_cases/case_36.png,Derived from Wikimedia pneumonia X-ray sample,"contrast, brightness, sharpness, autocontrast, rotate -2 deg"
