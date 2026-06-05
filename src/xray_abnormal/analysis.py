@@ -61,19 +61,20 @@ def analyze_pretrained_case(
     image_rgb = np.asarray(image.convert("RGB"))
     image_rgb = cv2.resize(image_rgb, (heatmap.shape[1], heatmap.shape[0]))
     detection_overlay = draw_boxes(image_rgb, boxes)
-    report = generate_report(df, boxes, threshold)
+    report = generate_report(df, boxes, threshold, visual_method="fallback CAM heatmap")
 
     if boxes:
         region = boxes[0].lung_region
         explanation = (
-            f"The model prioritized {primary_label} because the highest activation region on Grad-CAM "
-            f"overlaps the {region}. The calibrated score is {primary_confidence:.2f}; "
-            f"uncertainty is {uncertainty_label(primary_confidence).lower()}."
+            f"The single-model fallback prioritized {primary_label}; the strongest visual evidence "
+            f"overlaps the {region}. Calibrated score is {primary_confidence:.2f}; "
+            f"uncertainty is {uncertainty_label(primary_confidence).lower()}. "
+            "ConvNeXtV2 EigenCAM and RAD-DINO Attention Rollout should replace this fallback when checkpoints are available."
         )
     else:
         explanation = (
-            f"The model prioritized {primary_label} based on global image features, but no compact suspicious "
-            "region exceeded the localization threshold."
+            f"The single-model fallback prioritized {primary_label} based on global image features, but no compact suspicious "
+            "region exceeded the localization threshold. Ensemble agreement is unavailable in fallback mode."
         )
 
     return CaseAnalysis(

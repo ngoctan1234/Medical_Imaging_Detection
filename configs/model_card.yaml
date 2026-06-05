@@ -1,13 +1,13 @@
 model:
-  name: TorchXRayVision DenseNet121
-  version: 0.1.0-research
-  architecture: DenseNet-121
-  task: Multi-label chest X-ray abnormality classification with Grad-CAM localization proxy
-  dataset: NIH ChestX-ray14, PadChest, CheXpert, MIMIC-CXR, OpenI, Kaggle CXR aggregates
-  input_resolution: 224 x 224
-  training_date: Pretrained public release
-  detector_backend: Grad-CAM connected-component lesion proposal; YOLOv8/DETR adapter ready
-  calibration: Temperature-scaled probability approximation
+  name: Clinical Chest X-ray AI Assistant
+  version: 0.2.0-research
+  architecture: ConvNeXtV2 + RAD-DINO weighted ensemble target; TorchXRayVision fallback demo
+  task: 15-class VinBigData chest X-ray interpretation with clinical evidence extraction
+  dataset: VinBigData Chest X-ray target; fallback demo uses public pretrained CXR weights
+  input_resolution: 224 x 224 fallback; model-specific resolution for ConvNeXtV2/RAD-DINO
+  training_date: Research prototype
+  detector_backend: EigenCAM and Attention Rollout target; fallback CAM localization proxy in demo mode
+  calibration: Temperature-scaled probability approximation; validation AUROC weighting target
 
 performance:
   accuracy: 0.842

@@ -107,13 +107,48 @@ python -m xray_abnormal.infer `
   --output outputs/heatmap_example.png
 ```
 
+## ConvNeXtV2 + RAD-DINO ensemble target
+
+Workflow clinical muc tieu:
+
+```text
+Chest X-ray -> Disease Detection -> Explainability -> Clinical Evidence -> Clinical Reasoning -> Radiology Report
+```
+
+Ensemble dung weighted averaging:
+
+```text
+ensemble_probs = w * convnext_probs + (1 - w) * raddino_probs
+```
+
+De toi uu `w` tren validation AUROC, export CSV tu notebook voi cac cot:
+
+- `y_<class>` cho ground truth 15 class VinBigData
+- `convnext_<class>` cho ConvNeXtV2 probability
+- `raddino_<class>` cho RAD-DINO probability
+
+Sau do chay:
+
+```powershell
+$env:PYTHONPATH='src'
+python scripts/optimize_ensemble_weight.py `
+  --input outputs/validation_predictions.csv `
+  --output outputs/ensemble_weight.yaml
+```
+
+Explainability target:
+
+- ConvNeXtV2: EigenCAM
+- RAD-DINO: Attention Rollout
+- Demo hien tai: fallback CAM heatmap, khong xem la primary explainability khi viet bao cao khoa hoc.
+
 ## Chay app
 
 ```powershell
 streamlit run src/app.py
 ```
 
-Trong app, chon `TorchXRayVision pretrained` de dung model chest X-ray da train san. Chon `Local checkpoint` neu ban da train model rieng bang project nay.
+Trong app, chon `Fallback pretrained demo` de dung model chest X-ray da train san. Chon `Local checkpoint` khi da wire checkpoint ConvNeXtV2/RAD-DINO rieng.
 
 Neu khong co anh de upload, app co san muc `Demo cases` va se tu chay voi bo case mau trong `data/demo_cases`.
 

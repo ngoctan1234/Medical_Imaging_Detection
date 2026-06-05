@@ -1,0 +1,32 @@
+data:
+  label_columns:
+    - Aortic enlargement
+    - Atelectasis
+    - Calcification
+    - Cardiomegaly
+    - Consolidation
+    - ILD
+    - Infiltration
+    - Lung Opacity
+    - Nodule/Mass
+    - Other lesion
+    - Pleural effusion
+    - Pleural thickening
+    - Pneumothorax
+    - Pulmonary fibrosis
+    - No finding
+
+ensemble:
+  convnext_weight: 0.5
+  raddino_weight: 0.5
+  agreement:
+    high_threshold: 0.90
+    medium_threshold: 0.75
+
+explainability:
+  convnext_method: EigenCAM
+  raddino_method: Attention Rollout
+  fallback_method: fallback CAM heatmap
+
+report:
+  disclaimer: AI-generated report for research support only. Radiologist review is required.
