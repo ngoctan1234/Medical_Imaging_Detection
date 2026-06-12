@@ -58,12 +58,23 @@ st.markdown(
         padding: 0.55rem 0.75rem 0.8rem 0.75rem !important;
         margin-top: -4.2rem !important;
     }
-    .sidebar-brand { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.6rem; }
+    .sidebar-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.68rem;
+        margin: -0.55rem -0.75rem 1.05rem -0.75rem;
+        padding: 0.72rem 0.78rem;
+        background: linear-gradient(180deg, #071d4d 0%, #061334 100%);
+        color: white;
+        min-height: 3.95rem;
+    }
     .brand-mark {
         width: 2.75rem; height: 2.75rem; border-radius: 8px; display: grid; place-items: center;
         background: #061d52; color: #23d7ef; font-size: 1.25rem; font-weight: 900;
     }
-    .brand-title { color: #07152d; font-size: 1.16rem; font-weight: 900; line-height: 1.1; }
+    .lung-svg { width: 2rem; height: 2rem; display: block; }
+    .lung-svg path, .lung-svg line { stroke: currentColor; }
+    .brand-title { color: white; font-size: 1.16rem; font-weight: 900; line-height: 1.1; }
     .brand-subtitle { color: #0aa6c7; font-size: 0.7rem; font-weight: 750; margin-top: 0.15rem; }
     .side-nav { display: grid; gap: 0.6rem; margin-bottom: 1rem; }
     .side-nav-item {
@@ -112,6 +123,18 @@ st.markdown(
         color: white;
         background: rgba(255,255,255,0.03);
         white-space: nowrap;
+    }
+    .xnet-action .mini-icon {
+        display: inline-grid;
+        place-items: center;
+        width: 1.05rem;
+        height: 1.05rem;
+        margin-right: 0.34rem;
+        border: 1px solid currentColor;
+        border-radius: 3px;
+        font-size: 0.48rem;
+        line-height: 1;
+        vertical-align: -0.1rem;
     }
     .xnet-study-strip {
         margin: 0 0.65rem;
@@ -495,6 +518,18 @@ st.markdown(
     }
     div[data-testid="stFileUploader"] {
         margin-bottom: 0.9rem;
+    }
+    section[data-testid="stSidebar"] details {
+        border: 1px solid #d7e4f4;
+        border-radius: 6px;
+        background: #fff;
+        margin: 0.45rem 0 0.65rem;
+    }
+    section[data-testid="stSidebar"] details summary {
+        min-height: 2.45rem;
+        font-size: 0.8rem;
+        font-weight: 780;
+        color: #123163;
     }
     div[data-testid="stSegmentedControl"] {
         max-width: 31rem;
@@ -963,12 +998,19 @@ patient_id = "DEMO 001"
 age = 54
 sex = "Unknown"
 view_position = "PA"
+lung_icon_svg = """
+<svg class='lung-svg' viewBox='0 0 64 64' aria-hidden='true'>
+  <path d='M31 7v18c-6-7-12-11-18-12-5 7-8 18-8 31 0 7 3 12 8 12 10 0 14-15 18-25' fill='none' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M33 25V7m0 24c4 10 8 25 18 25 5 0 8-5 8-12 0-13-3-24-8-31-6 1-12 5-18 12' fill='none' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/>
+  <line x1='32' y1='7' x2='32' y2='4' stroke-width='3' stroke-linecap='round'/>
+</svg>
+"""
 
 with st.sidebar:
     st.markdown(
-        """
+        f"""
         <div class='sidebar-brand'>
-          <div class='brand-mark'>♁</div>
+          <div class='brand-mark'>{lung_icon_svg}</div>
           <div>
             <div class='brand-title'>XRayNet</div>
             <div class='brand-subtitle'>Clinical CXR AI Assistant</div>
@@ -981,8 +1023,8 @@ with st.sidebar:
     st.markdown(
         """
         <div class='side-nav'>
-          <div class='side-nav-item primary'><span class='side-icon'>⌂</span><span>Upload Image</span></div>
-          <div class='side-nav-item'><span class='side-icon'>#</span><span>Demo Cases</span></div>
+          <div class='side-nav-item primary'><span class='side-icon'>UP</span><span>Upload Image</span></div>
+          <div class='side-nav-item'><span class='side-icon'>DC</span><span>Demo Cases</span></div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -1128,29 +1170,29 @@ st.markdown(
     (
         "<div class='xnet-dashboard'>"
         "<div class='xnet-header'>"
-        "<div class='xnet-brand'><div class='xnet-logo'>♁</div><div>"
-        "<div class='xnet-title'>XRayNet — System Result Output</div>"
+        f"<div class='xnet-brand'><div class='xnet-logo'>{lung_icon_svg}</div><div>"
+        "<div class='xnet-title'>XRayNet - System Result Output</div>"
         "<div class='xnet-subtitle'>Clinical Chest X-ray AI Assistant</div>"
         "</div></div>"
         "<div class='xnet-actions'>"
-        "<div class='xnet-action'>▣ Export PDF</div>"
-        "<div class='xnet-action'>▣ Save Case</div>"
-        "<div class='xnet-action'>✎ Radiologist Review / Edit</div>"
+        "<div class='xnet-action'><span class='mini-icon'>PDF</span>Export PDF</div>"
+        "<div class='xnet-action'><span class='mini-icon'>SV</span>Save Case</div>"
+        "<div class='xnet-action'><span class='mini-icon'>ED</span>Radiologist Review / Edit</div>"
         "</div>"
         "</div>"
         "<div class='xnet-study-strip'>"
-        "<div class='xnet-study-item'><div class='xnet-study-icon'>●</div><div><div class='xnet-kicker'>Patient</div>"
+        "<div class='xnet-study-item'><div class='xnet-study-icon'>PT</div><div><div class='xnet-kicker'>Patient</div>"
         f"<div class='xnet-field'>{escape(patient_id)}</div></div></div>"
-        "<div class='xnet-study-item'><div class='xnet-study-icon'>▣</div><div><div class='xnet-kicker'>Date</div>"
+        "<div class='xnet-study-item'><div class='xnet-study-icon'>DT</div><div><div class='xnet-kicker'>Date</div>"
         f"<div class='xnet-field'>{study_date}</div></div></div>"
-        "<div class='xnet-study-item'><div class='xnet-study-icon'>▤</div><div><div class='xnet-kicker'>View</div>"
+        "<div class='xnet-study-item'><div class='xnet-study-icon'>VW</div><div><div class='xnet-kicker'>View</div>"
         f"<div class='xnet-field'>{escape(view_position)}</div></div></div>"
-        "<div class='xnet-study-item'><div class='xnet-study-icon'>▧</div><div><div class='xnet-kicker'>Study</div>"
+        "<div class='xnet-study-item'><div class='xnet-study-icon'>RX</div><div><div class='xnet-kicker'>Study</div>"
         "<div class='xnet-field'>CHEST X-RAY</div></div></div>"
         "</div>"
         "<div class='xnet-content'>"
         "<div class='xnet-panel xnet-image-panel'>"
-        "<div class='xnet-panel-title'>♁ Chest X-ray Analysis</div>"
+        "<div class='xnet-panel-title'>XR Chest X-ray Analysis</div>"
         "<div class='xnet-image-grid'>"
         "<div class='xnet-image-frame'><div class='xnet-image-label'>Original Chest X-ray (PA View)</div>"
         f"<img class='xnet-image' src='{image_data_uri(image)}' alt='Original chest X-ray' /></div>"
@@ -1158,35 +1200,35 @@ st.markdown(
         f"<img class='xnet-image' src='{image_data_uri(analysis.gradcam_overlay)}' alt='AI heatmap visual evidence' /></div>"
         "</div></div>"
         "<div class='xnet-panel xnet-report-panel'>"
-        "<div class='xnet-panel-title'>▧ Report Summary</div>"
+        "<div class='xnet-panel-title'>RS Report Summary</div>"
         "<div class='xnet-report-grid'>"
-        "<div class='xnet-report-card'><div class='xnet-report-icon'>♁</div><div class='xnet-card-label'>Primary Finding</div>"
+        "<div class='xnet-report-card'><div class='xnet-report-icon'>XR</div><div class='xnet-card-label'>Primary Finding</div>"
         f"<div class='xnet-card-value'>{primary_label_html}</div></div>"
-        "<div class='xnet-report-card'><div class='xnet-report-icon teal'>✓</div><div class='xnet-card-label'>Confidence</div>"
+        "<div class='xnet-report-card'><div class='xnet-report-icon teal'>OK</div><div class='xnet-card-label'>Confidence</div>"
         f"<div class='xnet-card-value prob'>{primary_confidence_html}</div><div class='xnet-card-note'>Calibrated probability</div></div>"
-        "<div class='xnet-report-card'><div class='xnet-report-icon orange'>△</div><div class='xnet-card-label'>Risk Level</div>"
+        "<div class='xnet-report-card'><div class='xnet-report-icon orange'>!</div><div class='xnet-card-label'>Risk Level</div>"
         f"<div class='xnet-card-value risk'>{risk_html}</div><div class='xnet-card-note'>Triage indicator</div></div>"
-        "<div class='xnet-report-card'><div class='xnet-report-icon blue'>●</div><div class='xnet-card-label'>Top Differential</div>"
+        "<div class='xnet-report-card'><div class='xnet-report-icon blue'>TD</div><div class='xnet-card-label'>Top Differential</div>"
         f"<div class='xnet-diff-list'>{diff_html}</div></div>"
         "</div></div>"
         "<div class='xnet-panel xnet-findings-panel'>"
-        "<div class='xnet-panel-title'>▥ AI Findings (Top 5)</div>"
+        "<div class='xnet-panel-title'>AI Findings (Top 5)</div>"
         f"<div class='xnet-chip-row'>{chips_html}</div>"
         "</div>"
         "<div class='xnet-panel xnet-lower-left'>"
-        "<div class='xnet-panel-title'>⌕ Explainability</div>"
+        "<div class='xnet-panel-title'>Explainability</div>"
         "<div class='xnet-evidence'><div>"
-        f"<div class='xnet-check-row'><span class='xnet-check'>✓</span><div class='xnet-evidence-text'>{visual_evidence}</div></div>"
-        f"<div class='xnet-check-row'><span class='xnet-check'>✓</span><div class='xnet-evidence-text'>{clinical_evidence} {clinical_reasoning}</div></div>"
+        f"<div class='xnet-check-row'><span class='xnet-check'>OK</span><div class='xnet-evidence-text'>{visual_evidence}</div></div>"
+        f"<div class='xnet-check-row'><span class='xnet-check'>OK</span><div class='xnet-evidence-text'>{clinical_evidence} {clinical_reasoning}</div></div>"
         "</div><div class='xnet-mini-legend'><div>High</div><div class='xnet-mini-bar'></div><div>Low</div></div>"
         "</div></div>"
         "<div class='xnet-panel xnet-conclusion-panel'>"
-        "<div class='xnet-conclusion-card'><div class='xnet-panel-title'>▣ Conclusion</div>"
+        "<div class='xnet-conclusion-card'><div class='xnet-panel-title'>Conclusion</div>"
         f"<div class='xnet-body'>{impression}<br><br>Findings should be reviewed by a radiologist for clinical correlation.</div></div>"
-        "<div class='xnet-notes-card'><div class='xnet-panel-title'>✎ Radiologist Review / Doctor Notes</div>"
+        "<div class='xnet-notes-card'><div class='xnet-panel-title'>Radiologist Review / Doctor Notes</div>"
         "<div class='xnet-body'><div class='xnet-notes-box'>"
         f"{escape(note_text)}"
-        "</div><div class='xnet-note-actions'><span class='xnet-note-btn'>↻ Reset</span><span class='xnet-note-btn primary'>Save Notes</span></div></div></div>"
+        "</div><div class='xnet-note-actions'><span class='xnet-note-btn'>Reset</span><span class='xnet-note-btn primary'>Save Notes</span></div></div></div>"
         "</div>"
         "</div>"
         "<div class='xnet-footer'>For research support only. Radiologist review required.</div>"
